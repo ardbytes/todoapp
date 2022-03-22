@@ -1,0 +1,26 @@
+#welcome {
+  /* rules of center alignment */
+  text-align: center;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  margin: auto;
+  height: 300px;
+}
+
+#welcome > p {
+  font-weight: bold;
+  font-size: 4.5rem;
+  margin: 0;
+}
+
+#welcome > button {
+  margin-top: 32px;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
