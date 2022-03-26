@@ -1,7 +1,65 @@
-.signin {
+#signin {
   display: flex;
   min-height: 100%;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+#signin_form {
+  width: 400px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 8px;
+  border: solid 1px #dbdbdb;
+  background: #fff;
+  padding: 25px;
+}
+
+#signin_form > a {
+  text-decoration: none;
+  color: #ee5244;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+#signin_form .field {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form_label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#signin_form .input {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 0.75em 1em;
+  width: 100%;
+}
+
+#signin_form input[type='submit'] {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: block;
+  font-size: 13px !important;
+  font-weight: 700;
+  height: auto;
+  padding: 9px 12px;
+  text-align: center;
+  width: 100%;
+
+  background: 0;
+  background-color: #db4c3f;
+  color: #fff !important;
+  text-shadow: none;
+  border: 1px solid transparent;
 }
