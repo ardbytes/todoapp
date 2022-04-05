@@ -1,0 +1,31 @@
+#sticky {
+  position: sticky;
+  top: 0;
+}
+
+#tasks_header {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #db4c3f;
+  color: white;
+  gap: 15px;
+}
+
+#tasks_header div:first-of-type {
+  padding-left: 30px;
+}
+
+#tasks_header div:last-of-type {
+  padding-right: 30px;
+}
+
+#tasks_header div {
+  cursor: pointer;
+}
+
+#spacer {
+  flex-grow: 1;
+  cursor: default;
+}

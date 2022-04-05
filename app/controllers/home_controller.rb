@@ -8,7 +8,7 @@ class HomeController < ApplicationController
 
   def welcome
     if current_user
-      redirect_to home_index_path
+      redirect_to tasks_path
     end
   end
 end
