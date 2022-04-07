@@ -1,0 +1,14 @@
+#menu {
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+#menu div {
+  padding: 20px;
+}
+
+#menu #spacer {
+  flex-grow: 1;
+}
