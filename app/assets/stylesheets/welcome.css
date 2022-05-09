@@ -13,11 +13,6 @@
   text-align: center;
 }
 
-.margin-0 {
-  margin: 0;
-  display: inline;
-}
-
 #welcome > a {
   background-color: #e44232;
   border-color: #e44232;
