@@ -3,6 +3,10 @@ class TasksController < ApplicationController
     redirect_to task_path('today')
   end
 
+  def new
+
+  end
+
   def show
   end
 end
