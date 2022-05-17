@@ -1,8 +1,20 @@
-<div class="wrapper">
-  <%=render partial: 'header'%>
-  <div class="middle">
-    <%=render partial: 'menu'%>
-    <div class="main">
-    </div>
+<div id="new_task">
+  <div class="form">
+    <h2>New Task</h2>
+    <%= form_for(@task) do |f| %>
+      <div class="field">
+        <%= f.text_field :title, autofocus: true, autocomplete: "off", class: "input", placeholder: "Title" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :description, autocomplete: "off", class: "input", placeholder: "Description" %>
+      </div>
+      <div class="field">
+        <%= f.date_field :due_date, autocomplete: "off", class: "input", title: "Due Date" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Add Task" %>
+      </div>
+    <%end%>
   </div>
-</div>
+<div>
