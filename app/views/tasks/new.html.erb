@@ -1,6 +1,12 @@
 <div id="new_task">
   <div class="form">
     <h2>New Task</h2>
+
+    <div id="flash">
+      <%flash.each do |type, msg|%>
+        <div class="<%=type%>"><%=msg%></div>
+      <%end%>
+    </div>
     <%= form_for(@task) do |f| %>
       <div class="field">
         <%= f.text_field :title, autofocus: true, autocomplete: "off", class: "input", placeholder: "Title" %>
@@ -17,4 +23,4 @@
       </div>
     <%end%>
   </div>
-<div>
+</div>

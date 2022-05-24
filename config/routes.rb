@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   get "home/index"
   root "home#welcome"
 
+  get "tasks/today"
+  get "tasks/upcoming"
   resources :tasks
 end

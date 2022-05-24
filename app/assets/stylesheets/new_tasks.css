@@ -62,3 +62,7 @@
   text-shadow: none;
   border: 1px solid transparent;
 }
+
+#flash .error {
+  color: red;
+}

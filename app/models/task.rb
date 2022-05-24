@@ -1,10 +1,9 @@
-class Task 
-  include ActiveModel::Conversion
-  include ActiveModel::Validations
+class Task < ApplicationRecord
+  validates :title, presence: true
 
-  attr_accessor :title, :description, :due_date
-
-  def persisted?
-    false
+  before_save do
+    if self.due_date.blank?
+      self.due_date = Date.today
+    end
   end
 end
