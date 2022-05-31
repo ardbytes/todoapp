@@ -1,0 +1,24 @@
+#index_task{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#index_task .form{
+  width: 382px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 8px;
+  border: solid 1px #dbdbdb;
+  background: #fff;
+  padding: 25px;
+  padding-bottom: 35px;
+}
+
+#index_task input[type='submit'] {
+  border: none;
+  background: transparent;
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+  font: unset;
+}

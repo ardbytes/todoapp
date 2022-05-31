@@ -1,4 +1,5 @@
 <aside id="menu">
+  <div id="today" onclick="javascript: menuItemClicked('');return false;" class="<%=params['action']== 'index' ? 'active' : ''%>">Index</div>
   <div id="today" onclick="javascript: menuItemClicked('today');return false;" class="<%=params['action']== 'today' ? 'active' : ''%>">Today</div>
   <div id="upcoming" onclick="javascript: menuItemClicked('upcoming');return false;" class="<%=params['action']== 'upcoming' ? 'active' : ''%>">Upcoming</div>
 </aside>

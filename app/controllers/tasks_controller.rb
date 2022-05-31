@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   def index
+    @tasks = Task.all
   end
 
   def new
@@ -7,19 +8,35 @@ class TasksController < ApplicationController
   end
 
   def edit
-    render 'wip'
+    @task = Task.find(params[:id])
   end
 
   def today
-    render 'wip'
+    @tasks = Task.where(:due_date => Date.today)
+    render :index
   end
 
   def upcoming
-    render 'wip'
+    @tasks = Task.where('due_date > ?', Date.today)
+    render :index
   end
 
   def show
     @task = Task.where(:id => params['id']).first
+  end
+
+  def done
+    delete
+  end
+
+  def delete
+    task = Task.find(params[:id])
+    task.destroy
+    if request.referer
+      redirect_to request.referer
+    else
+      redirect_to root_path
+    end
   end
 
   def create
@@ -31,6 +48,18 @@ class TasksController < ApplicationController
       return
     end
     redirect_to task_path(@task)
+  end
+
+  def update
+    task = Task.find(params[:id])
+    begin
+      task.update!(task_params)
+    rescue ActiveRecord::ActiveRecordError => e
+      flash[:error] = e.message
+      redirect_to edit_task_path(task)
+      return
+    end
+    redirect_to task_path(task)
   end
 
   def task_params

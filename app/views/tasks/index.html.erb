@@ -1,0 +1,27 @@
+<%if @tasks.count > 0 %>
+  <div id="index_task">
+    <%@tasks.each do |task|%>
+      <div class="task_card">
+        <div class="form">
+          <%= form_for(task, :url => done_task_path(task)) do |f| %>
+            <h2><%=task.title%></h2>
+
+            <div class="field">
+              <p><%=task.description%><p>
+            </div>
+            <div class="field">
+              <p>Due on <%=task.due_date.strftime("%d %b %Y")%></p>
+            </div>
+
+            <div class="actions">
+              <%= link_to "Edit", edit_task_path(task) %>
+              <%= f.submit "Done" %>
+            </div>
+        </div>
+      <%end%>
+      </div>
+    <%end%>
+  </div>
+<%else%>
+  <%= render :partial => 'notask'%>
+<%end%>

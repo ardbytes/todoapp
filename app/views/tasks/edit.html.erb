@@ -1,0 +1,29 @@
+<div id="edit_task">
+  <div class="form">
+    <h2>Edit Task</h2>
+
+    <div id="flash">
+      <%flash.each do |type, msg|%>
+        <div class="<%=type%>"><%=msg%></div>
+      <%end%>
+    </div>
+    <%= form_for(@task) do |f| %>
+
+      <%f.hidden_field :id%>
+
+      <div class="field">
+        <%= f.text_field :title, autofocus: true, autocomplete: "off", class: "input", placeholder: "Title" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :description, autocomplete: "off", class: "input", placeholder: "Description" %>
+      </div>
+      <div class="field">
+        <%= f.date_field :due_date, autocomplete: "off", class: "input", title: "Due Date" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update Task" %>
+      </div>
+    <%end%>
+  </div>
+</div>
