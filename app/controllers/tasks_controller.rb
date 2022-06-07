@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
+
+  before_action :set_user_id, only: ['create']
+
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   def new
@@ -8,21 +11,21 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 
   def today
-    @tasks = Task.where(:due_date => Date.today)
+    @tasks = current_user.tasks.where(:due_date => Date.today)
     render :index
   end
 
   def upcoming
-    @tasks = Task.where('due_date > ?', Date.today)
+    @tasks = current_user.tasks.where('due_date > ?', Date.today)
     render :index
   end
 
   def show
-    @task = Task.where(:id => params['id']).first
+    @task = current_user.tasks.where(:id => params['id']).first
   end
 
   def done
@@ -30,7 +33,7 @@ class TasksController < ApplicationController
   end
 
   def delete
-    task = Task.find(params[:id])
+    task = current_user.tasks.find(params[:id])
     task.destroy
     if request.referer
       redirect_to request.referer
@@ -41,6 +44,7 @@ class TasksController < ApplicationController
 
   def create
     begin
+      Rails.logger.info("params for create task: #{params}")
       @task = Task.create!(task_params)
     rescue ActiveRecord::ActiveRecordError => e
       flash[:error] = e.message
@@ -51,7 +55,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    task = Task.find(params[:id])
+    task = current_user.tasks.find(params[:id])
     begin
       task.update!(task_params)
     rescue ActiveRecord::ActiveRecordError => e
@@ -63,6 +67,13 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require('task').permit('title', 'description', 'due_date')
+    params.require('task').permit('title', 'description', 'due_date', 'user_id')
+  end
+
+  private
+
+  def set_user_id
+    Rails.logger.info("current_user_id: #{current_user.id}")
+    params['task']['user_id'] = current_user.id
   end
 end
