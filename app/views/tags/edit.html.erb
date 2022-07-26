@@ -1,0 +1,26 @@
+<div id="edit_tag">
+  <div class="form">
+    <h2>Edit Tag</h2>
+
+    <div id="flash">
+      <%flash.each do |type, msg|%>
+        <div class="<%=type%>"><%=msg%></div>
+      <%end%>
+    </div>
+    <%= form_for(@tag) do |f| %>
+
+      <%f.hidden_field :id%>
+
+      <div class="field">
+        <%= f.text_field :title, autofocus: true, autocomplete: "off", class: "input", placeholder: "Title" %>
+      </div>
+      <div class="field">
+        <%= f.text_field :description, autocomplete: "off", class: "input", placeholder: "Description" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update Tag" %>
+      </div>
+    <%end%>
+  </div>
+</div>

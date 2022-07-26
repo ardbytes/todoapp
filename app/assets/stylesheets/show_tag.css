@@ -1,0 +1,47 @@
+#show_tag{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#new_tag h2{
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+#show_tag .form{
+  width: 400px;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 8px;
+  border: solid 1px #dbdbdb;
+  background: #fff;
+  padding: 25px;
+  padding-bottom: 35px;
+}
+
+#show_tag .field{
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#show_tag .actions {
+  margin-top: 30px;
+}
+
+#show_tag .actions a {
+  background-color: #e44232;
+  border-color: #e44232;
+  border: 1px solid;
+  cursor: pointer;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 0.625rem;
+  outline: none;
+  text-decoration: none;
+}

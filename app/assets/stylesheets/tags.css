@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.middle {
+  flex: 1;
+  display: flex;
+}
+
+.main {
+  flex: 6;
+}
+
+aside {
+  flex: 1;
+}
+
+#tags_header {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  background-color: #db4c3f;
+  color: white;
+  gap: 15px;
+}
+
+#tags_header div:first-of-type {
+  padding-left: 30px;
+}
+
+#tags_header div:last-of-type {
+  padding-right: 30px;
+}
+
+#tags_header div {
+  cursor: pointer;
+}
+
+#spacer {
+  flex-grow: 1;
+  cursor: default;
+}

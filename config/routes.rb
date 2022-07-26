@@ -11,4 +11,10 @@ Rails.application.routes.draw do
       patch 'done'
     end
   end
+
+  resources :tags do
+    member do
+      patch 'done'
+    end
+  end
 end

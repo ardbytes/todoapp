@@ -1,0 +1,13 @@
+<div id="show_tag">
+  <div class="form">
+    <h2><%=@tag.title%></h2>
+
+    <div class="field">
+      <p><%=@tag.description%><p>
+    </div>
+
+    <div class="actions">
+      <%= link_to "Edit", edit_tag_path(@tag) %>
+    </div>
+  </div>
+</div>
