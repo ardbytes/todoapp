@@ -35,7 +35,7 @@
   width: 100%;
 }
 
-#new_task input{
+#new_task input, #new_task select{
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;

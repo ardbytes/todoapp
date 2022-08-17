@@ -7,11 +7,13 @@ class TasksController < ApplicationController
   end
 
   def new
+    @tags = Tag.all.sort_by {|t| t.title}.map {|t| [t.title, t.id]}
     @task = Task.new
   end
 
   def edit
     @task = current_user.tasks.find(params[:id])
+    @all_tags = Tag.all.sort_by {|t| t.title}.map {|t| [t.title, t.id]}
   end
 
   def today
@@ -45,7 +47,9 @@ class TasksController < ApplicationController
   def create
     begin
       Rails.logger.info("params for create task: #{params}")
+      Rails.logger.info("task_params: #{task_params}")
       @task = Task.create!(task_params)
+      @task.add_tags
     rescue ActiveRecord::ActiveRecordError => e
       flash[:error] = e.message
       redirect_to new_task_path
@@ -58,6 +62,7 @@ class TasksController < ApplicationController
     task = current_user.tasks.find(params[:id])
     begin
       task.update!(task_params)
+      task.update_tags
     rescue ActiveRecord::ActiveRecordError => e
       flash[:error] = e.message
       redirect_to edit_task_path(task)
@@ -67,7 +72,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require('task').permit('title', 'description', 'due_date', 'user_id')
+    params.require('task').permit('title', 'description', 'due_date', 'user_id', 'input_tags': [])
   end
 
   private
