@@ -28,3 +28,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # For user authentication
 gem 'devise'
+gem 'importmap-rails'
+gem 'turbo-rails'
