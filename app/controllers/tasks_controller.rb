@@ -1,7 +1,5 @@
 class TasksController < ApplicationController
 
-  before_action :set_user_id, only: ['create']
-
   def index
     @tasks = current_user.tasks
   end
@@ -72,13 +70,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require('task').permit('title', 'description', 'due_date', 'user_id', 'input_tags': [])
-  end
-
-  private
-
-  def set_user_id
-    Rails.logger.info("current_user_id: #{current_user.id}")
-    params['task']['user_id'] = current_user.id
+    params.require('task').permit('title', 'description', 'due_date', 'input_tags': []).with_defaults(user_id: current_user.id)
   end
 end
