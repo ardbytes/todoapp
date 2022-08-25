@@ -12,7 +12,9 @@ class TasksController < ApplicationController
   def edit
     @task = current_user.tasks.find(params[:id])
     @all_tags = Tag.all.sort_by {|t| t.title}.map {|t| [t.title, t.id]}
-    render :layout => false
+    if request.xhr?
+      render :layout => false and return
+    end
   end
 
   def today
