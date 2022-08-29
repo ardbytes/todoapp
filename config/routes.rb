@@ -6,11 +6,7 @@ Rails.application.routes.draw do
 
   get "tasks/today"
   get "tasks/upcoming"
-  resources :tasks do
-    member do
-      patch 'done'
-    end
-  end
+  resources :tasks
 
   resources :tags do
     member do

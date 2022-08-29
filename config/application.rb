@@ -34,5 +34,7 @@ module Todoapp
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.action_view.automatically_disable_submit_tag = false
   end
 end

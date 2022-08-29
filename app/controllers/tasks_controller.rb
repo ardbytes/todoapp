@@ -31,18 +31,11 @@ class TasksController < ApplicationController
     @task = current_user.tasks.where(:id => params['id']).first
   end
 
-  def done
-    delete
-  end
-
-  def delete
+  def destroy
     task = current_user.tasks.find(params[:id])
     task.destroy
-    if request.referer
-      redirect_to request.referer
-    else
-      redirect_to root_path
-    end
+    @tasks = current_user.tasks
+    render :index
   end
 
   def create
