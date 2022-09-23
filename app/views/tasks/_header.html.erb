@@ -1,7 +1,6 @@
 <div id="sticky">
   <header id="tasks_header">
-    <div>Search</div>
-    <div onclick="window.location='/tasks/new'">Add task</div>
-    <div onclick="window.location='/tags'">Tags</div>
+    <%= link_to "Add task", new_task_path %>
+    <%= link_to "Tags", tags_path %>
   </header>
 </div>

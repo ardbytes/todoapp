@@ -14,9 +14,9 @@
             </div>
 
             <div class="actions">
-              <%= link_to "Edit", edit_task_path(task), :target => 'main_content' %>
+              <%= link_to "Edit", edit_task_path(task) %>
               <span>&nbsp;&nbsp;</span>
-              <%= link_to "Done", task, :target => 'main_content', :data => {'turbo-method' => 'delete'} %>
+              <%= link_to "Done", task, :data => {'turbo-method' => 'delete'} %>
             </div>
           </div>
         </div>
