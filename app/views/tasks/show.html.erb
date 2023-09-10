@@ -6,9 +6,6 @@
     <div class="field">
       <p><%=@task.description%><p>
     </div>
-    <div class="field">
-      <p>Due on <%=@task.due_date.strftime("%d %b %Y")%></p>
-    </div>
 
     <div class="actions">
       <%= link_to "Edit", edit_task_path(@task) %>

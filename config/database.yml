@@ -15,7 +15,7 @@
 # gem 'pg'
 #
 default: &default
-  adapter: postgresql
+  adapter: sqlite3
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
@@ -29,7 +29,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: todoapp
+  #username: todoapp
 
   # The password associated with the postgres role (username).
   #password:

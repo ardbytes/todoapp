@@ -37,10 +37,4 @@ class Task < ApplicationRecord
   after_initialize do
     self.saved_tags = tags.collect(&:id).collect(&:to_s)
   end
-
-  before_save do
-    if self.due_date.blank?
-      self.due_date = Date.today
-    end
-  end
 end

@@ -15,9 +15,6 @@
         <div class="field">
           <%= f.text_field :description, autocomplete: "off", class: "input", placeholder: "Description" %>
         </div>
-        <div class="field">
-          <%= f.date_field :due_date, autocomplete: "off", class: "input", title: "Due Date" %>
-        </div>
 
         <div class="field">
           <%= f.select :input_tags, options_for_select(@tags), {:include_blank => false}, {:multiple => true}  %>

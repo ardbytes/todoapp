@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = current_user.tasks
+    @tasks = Task.all
   end
 
   def new
@@ -10,28 +10,18 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = current_user.tasks.find(params[:id])
+    @task = Task.find(params[:id])
     @all_tags = Tag.all.sort_by {|t| t.title}.map {|t| [t.title, t.id]}
   end
 
-  def today
-    @tasks = current_user.tasks.where(:due_date => Date.today)
-    render :index
-  end
-
-  def upcoming
-    @tasks = current_user.tasks.where('due_date > ?', Date.today)
-    render :index
-  end
-
   def show
-    @task = current_user.tasks.where(:id => params['id']).first
+    @task = Task.where(:id => params['id']).first
   end
 
   def destroy
-    task = current_user.tasks.find(params[:id])
+    task = Task.find(params[:id])
     task.destroy
-    @tasks = current_user.tasks
+    @tasks = Task.all
     render :index
   end
 
@@ -50,7 +40,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    task = current_user.tasks.find(params[:id])
+    task = Task.find(params[:id])
     begin
       task.update!(task_params)
       task.update_tags
@@ -63,6 +53,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require('task').permit('title', 'description', 'due_date', 'input_tags': []).with_defaults(user_id: current_user.id)
+    params.require('task').permit('title', 'description', 'input_tags': [])
   end
 end
